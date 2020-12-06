@@ -10,9 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/sondage")
- */
+
 class SondageController extends AbstractController
 {
     /**
@@ -22,6 +20,16 @@ class SondageController extends AbstractController
     {
         return $this->render('sondage/index.html.twig', [
             'sondages' => $sondageRepository->findAll(),
+        ]);
+    }
+    /**
+     * @Route("/sondages",name="listesondage",methods="GET")
+     */
+    public function getSondages(){
+        $repo=$this->getDoctrine()->getRepository(Sondage::class);
+        $sondages=$repo->findAll();
+        return $this->render('sondage/liste_sondage.html.twig',[
+            'sondages'=>$sondages
         ]);
     }
 
@@ -72,6 +80,7 @@ class SondageController extends AbstractController
 
             return $this->redirectToRoute('sondage_index');
         }
+        
 
         return $this->render('sondage/edit.html.twig', [
             'sondage' => $sondage,
@@ -102,4 +111,6 @@ class SondageController extends AbstractController
             dd($sondage);
 
     }
+
+    
 }

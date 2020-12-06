@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{%  block body %}
+
+    <div style="background-color:#8FA0D3 ; margin-right: 200px;margin-left: 200px;margin-top: 200px">
+
+    <h3 style="color: white; margin-left: 50px;padding: 20px" >Creation d'un compte utilisateur</h3>
+        <div style="margin-left: 400px " >
+{{ form_start(form) }}
+    {% if form.photo %}
+    {% do form.photo.setRendered() %}
+    {% endif %}
+    
+
+            {{ form_end(form) }}
+        </br>
+
+
+        </div>
+    </div>
+{% endblock %}

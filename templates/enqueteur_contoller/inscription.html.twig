@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{%  block body %}
+
+    <div style="background-color:#8FA0D3 ; margin-right: 200px;margin-left: 200px;margin-top: 200px">
+
+    <h3 style="color: white; margin-left: 50px;padding: 20px" >Creation d'un enquêteur</h3>
+        <div style="margin-left: 400px " >
+{{form_start(form)}}
+{% if form.nom != null %}
+{% do form.nom.setRendered() %}
+{% do form.prenom.setRendered() %}
+{% do form.dateNaissance.setRendered() %}
+{% do form.genre.setRendered() %}
+{% do form.tel.setRendered() %}
+{% do form.motDePasse.setRendered() %}
+{% endif %}
+{{form_row(form.matriculeFiscale)}}
+{{form_row(form.registreDesCommeerces)}}
+{{form_row(form.adresseSociete)}}
+{{form_row(form.email)}}
+{{form_row(form.cin)}}
+{{form_row(form.logo)}}
+{{form_end(form)}}
+        </div>
+    </div>
+{% endblock %}

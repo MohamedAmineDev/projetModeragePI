@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sondage{% endblock %}
+
+{% block body %}
+{% for sondage in sondages %}
+    <article>
+        <h1>{{sondage.titre}}</h1>
+        <p>Nombre de participants : {{sondage.nbParticipant}}</p>
+        <p>Nombres de question : {{sondage.nbQuestion}}</p>
+    
+    </article>
+{% endfor %}
+
+{% endblock %}
